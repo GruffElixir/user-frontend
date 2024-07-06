@@ -1,0 +1,47 @@
+.submit-book-request {
+	padding: 20px;
+}
+
+.book-request-form {
+	margin-bottom: 20px;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+	width: 100%;
+	padding: 8px;
+	box-sizing: border-box;
+}
+
+.submitted-books-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.submitted-books-table th,
+.submitted-books-table td {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+.submitted-books-table th {
+	background-color: #f4f4f4;
+	text-align: left;
+}
+
+.btn-action {
+	background-color: #28a745;
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+}

@@ -3,12 +3,13 @@ import { Container, CssBaseline, Drawer, List, ListItem, ListItemText, AppBar, T
 import Dashboard from './Dashboard';
 import ChangePassword from './ChangePassword';
 import IssuedBooks from './IssuedBooks';
+import SubmitBookRequest from './SubmitBookRequest';
 
 const drawerWidth = 240;
 
 const UserPanel = () => {
   const [selectedSection, setSelectedSection] = React.useState('Dashboard');
-
+  
   const handleListItemClick = (section) => {
     setSelectedSection(section);
   };
@@ -51,7 +52,7 @@ const UserPanel = () => {
         {selectedSection === 'Change Password' && <ChangePassword />}
         {selectedSection === 'View Issued Books' && <IssuedBooks />}
         {selectedSection === 'View All Archive Books' && <div>View All Archive Books Section</div>}
-        {selectedSection === 'Submit Book Request' && <div>Submit Book Request Section</div>}
+        {selectedSection === 'Submit Book Request' && <SubmitBookRequest />}
         {selectedSection === 'About Software' && <div>About Software Section</div>}
       </Box>
     </Box>
