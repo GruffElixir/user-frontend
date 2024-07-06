@@ -1,0 +1,29 @@
+[
+	{
+		"ISBN": "1259003884",
+		"BookName": "Sql The Complete Reference",
+		"BookDesc": "N/A",
+		"Category": "SQL",
+		"Price": 100,
+		"Qty": 1,
+		"Borrowed": 0
+	},
+	{
+		"ISBN": "0071483462",
+		"BookName": "MORE Electronic Gadgets for the Evil Genius",
+		"BookDesc": "This much anticipated follow-up to the wildly popular cultclassic Electronic...",
+		"Category": "Engineering",
+		"Price": 5,
+		"Qty": 1,
+		"Borrowed": 1
+	},
+	{
+		"ISBN": "8184315805",
+		"BookName": "Basic Electronics Engineering",
+		"BookDesc": "N/A",
+		"Category": "Engineering",
+		"Price": 5,
+		"Qty": 1,
+		"Borrowed": 0
+	}
+]
