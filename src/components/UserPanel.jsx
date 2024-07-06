@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, CssBaseline, Drawer, List, ListItem, ListItemText, AppBar, Toolbar, Typography, Box } from '@mui/material';
 import Dashboard from './Dashboard';
 import ChangePassword from './ChangePassword';
+import IssuedBooks from './IssuedBooks';
 
 const drawerWidth = 240;
 
@@ -48,7 +49,7 @@ const UserPanel = () => {
         <Toolbar />
         {selectedSection === 'Dashboard' && <Dashboard />}
         {selectedSection === 'Change Password' && <ChangePassword />}
-        {selectedSection === 'View Issued Books' && <div>View Issued Books Section</div>}
+        {selectedSection === 'View Issued Books' && <IssuedBooks />}
         {selectedSection === 'View All Archive Books' && <div>View All Archive Books Section</div>}
         {selectedSection === 'Submit Book Request' && <div>Submit Book Request Section</div>}
         {selectedSection === 'About Software' && <div>About Software Section</div>}
