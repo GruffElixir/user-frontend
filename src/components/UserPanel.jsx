@@ -26,6 +26,7 @@ const UserPanel = () => {
 
 	const handleListItemClick = (section) => {
 		setSelectedSection(section);
+		setDrawerOpen(false);
 	};
 
 	const toggleDrawer = (open) => () => {
@@ -64,7 +65,7 @@ const UserPanel = () => {
 					[`& .MuiDrawer-paper`]: {
 						width: drawerWidth,
 						boxSizing: "border-box",
-						top: 64, 
+						top: 64,
 					},
 				}}
 			>
