@@ -19,124 +19,91 @@ import SubmitBookRequest from "./SubmitBookRequest";
 import ArchivedBooks from "./ArchivedBooks";
 
 const drawerWidth = 240;
-const UserPanelNav = ({ toggleDrawer }) => (
-	<Box
-		sx={{ width: 250 }}
-		role="presentation"
-		onClick={toggleDrawer(false)}
-		onKeyDown={toggleDrawer(false)}
-	>
-		<List>
-			{navItems.map((item) => (
-				<ListItem button component={Link} to={item.path} key={item.text}>
-					<ListItemText primary={item.text} />
-				</ListItem>
-			))}
-		</List>
-	</Box>
-);
 
 const UserPanel = () => {
-	const [drawerOpen, setDrawerOpen] = useState(false);
-	const [selectedSection, setSelectedSection] = React.useState("Dashboard");
+	const [drawerOpen, setDrawerOpen] = useState("false");
+	const [selectedSection, setSelectedSection] = useState("Dashboard");
 
 	const handleListItemClick = (section) => {
 		setSelectedSection(section);
 	};
 
-	const toggleDrawer = (open) => (event) => {
-		if (
-			event.type === "keydown" &&
-			(event.key === "Tab" || event.key === "Shift")
-		) {
-			return;
-		}
+	const toggleDrawer = (open) => () => {
 		setDrawerOpen(open);
 	};
 
 	return (
-		<div className="user-panel">
-			<AppBar position="static">
+		<Box sx={{ display: "flex" }}>
+			<CssBaseline />
+			<AppBar
+				position="fixed"
+				sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+			>
 				<Toolbar>
 					<IconButton
 						edge="start"
 						color="inherit"
 						aria-label="menu"
 						onClick={toggleDrawer(true)}
+						sx={{ mr: 2 }}
 					>
 						<MenuIcon />
 					</IconButton>
-					<Typography variant="h6" style={{ flexGrow: 1 }}>
-						User Panel
+					<Typography variant="h6" noWrap component="div">
+						Student Portal
 					</Typography>
 				</Toolbar>
 			</AppBar>
-			<Drawer open={drawerOpen} onClose={toggleDrawer(false)}>
-				<UserPanelNav toggleDrawer={toggleDrawer} />
-			</Drawer>
-			<div className="content">
-				<Box sx={{ display: "flex" }}>
-					<CssBaseline />
-					<AppBar
-						position="fixed"
-						sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-					>
-						<Toolbar>
-							<Typography variant="h6" noWrap component="div">
-								User Panel
-							</Typography>
-						</Toolbar>
-					</AppBar>
-					<Drawer
-						variant="permanent"
-						sx={{
-							width: drawerWidth,
-							flexShrink: 0,
-							[`& .MuiDrawer-paper`]: {
-								width: drawerWidth,
-								boxSizing: "border-box",
-							},
-						}}
-					>
-						<Toolbar />
-						<Box sx={{ overflow: "auto" }}>
-							<List>
-								{[
-									"Dashboard",
-									"Change Password",
-									"View Issued Books",
-									"View All Archive Books",
-									"Submit Book Request",
-									"About Software",
-								].map((text) => (
-									<ListItem
-										button
-										key={text}
-										onClick={() => handleListItemClick(text)}
-									>
-										<ListItemText primary={text} />
-									</ListItem>
-								))}
-							</List>
-						</Box>
-					</Drawer>
-					<Box
-						component="main"
-						sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
-					>
-						<Toolbar />
-						{selectedSection === "Dashboard" && <Dashboard />}
-						{selectedSection === "Change Password" && <ChangePassword />}
-						{selectedSection === "View Issued Books" && <IssuedBooks />}
-						{selectedSection === "View All Archive Books" && <ArchivedBooks />}
-						{selectedSection === "Submit Book Request" && <SubmitBookRequest />}
-						{selectedSection === "About Software" && (
-							<div>About Software Section</div>
-						)}
-					</Box>
+			<Drawer
+				anchor="left"
+				open={drawerOpen}
+				onClose={toggleDrawer(false)}
+				sx={{
+					width: drawerWidth,
+					flexShrink: 0,
+					[`& .MuiDrawer-paper`]: {
+						width: drawerWidth,
+						boxSizing: "border-box",
+						top: 64, 
+					},
+				}}
+			>
+				<Box sx={{ overflow: "auto" }}>
+					<List>
+						{[
+							"Dashboard",
+							"Change Password",
+							"View Issued Books",
+							"View All Archive Books",
+							"Submit Book Request",
+							"About Software",
+						].map((text) => (
+							<ListItem
+								button
+								key={text}
+								onClick={() => handleListItemClick(text)}
+							>
+								<ListItemText primary={text} />
+							</ListItem>
+						))}
+					</List>
 				</Box>
-			</div>
-		</div>
+			</Drawer>
+			<Box
+				component="main"
+				sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
+			>
+				<Toolbar />
+				{selectedSection === "Dashboard" && <Dashboard />}
+				{selectedSection === "Change Password" && <ChangePassword />}
+				{selectedSection === "View Issued Books" && <IssuedBooks />}
+				{selectedSection === "View All Archive Books" && <ArchivedBooks />}
+				{selectedSection === "Submit Book Request" && <SubmitBookRequest />}
+				{selectedSection === "About Software" && (
+					<div>About Software Section</div>
+				)}
+			</Box>
+		</Box>
 	);
 };
 
